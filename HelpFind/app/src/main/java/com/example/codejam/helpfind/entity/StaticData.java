@@ -5,5 +5,4 @@ package com.example.codejam.helpfind.entity;
  */
 
 public class StaticData {
-    public static
 }
