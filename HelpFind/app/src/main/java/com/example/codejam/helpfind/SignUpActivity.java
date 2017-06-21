@@ -1,6 +1,7 @@
 package com.example.codejam.helpfind;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,8 @@ import butterknife.ButterKnife;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
+    public static final String USER_NAME = "username";
+    public static final String PASS_TOKEN = "password";
 
     @BindView(R.id.input_sign_account) EditText _account;
     @BindView(R.id.input_sign_email) EditText _email;
@@ -102,8 +105,14 @@ public class SignUpActivity extends AppCompatActivity {
     private void onSignupSuccess() {
         _signup.setEnabled(true);
         setResult(RESULT_OK, null);
-        finish();
+
         // TODO: execute back to login activity logic
+        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+        intent.putExtra(USER_NAME, _account.getText().toString());
+        intent.putExtra(PASS_TOKEN, _password.getText().toString());
+        startActivity(intent);
+
+        finish();
     }
 
     private void onSignupFailed() {
