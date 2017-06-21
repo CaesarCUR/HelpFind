@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView android:id="@+id/item_nearby_img"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:src="@drawable/me64"/>
+
+        <TextView android:id="@+id/item_nearby_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16dip"
+            android:textStyle="bold"
+            android:text="@string/string_item_nearby_username"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingTop="18dp"
+            android:textSize="10dip"
+            android:text="@string/string_item_nearby_time"/>
+
+
+    </LinearLayout>
+
+    <TextView android:id="@+id/item_nearby_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_item_nearby_info"
+        android:textSize="18dip"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"/>
+
+    <GridView android:id="@+id/item_nearby_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="2dp"
+        android:horizontalSpacing="2dp"
+        android:stretchMode="columnWidth"></GridView>
+
+</LinearLayout>

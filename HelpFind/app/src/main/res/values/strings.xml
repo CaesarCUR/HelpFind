@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HelpFind</string>
+    <string name="login_account_hint">Account</string>
+    <string name="string_open_map">Find More</string>
+    <string name="string_item_nearby_info">
+         Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum
+    </string>
+    <string name="string_item_nearby_username">Andrew</string>
+    <string name="string_item_nearby_time">1 hour ago</string>
+</resources>

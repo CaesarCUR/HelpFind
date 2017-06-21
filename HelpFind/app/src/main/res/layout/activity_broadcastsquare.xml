@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--User port-->
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:background="@android:color/white"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView android:id="@+id/img_me"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:src="@drawable/me64"
+                android:layout_weight="1"/>
+
+            <EditText android:id="@+id/input_broadcast"
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="48dp"
+                android:hint="Distribute your finding..."
+                android:textColorHint="#d7bfbf"
+                android:paddingLeft="10dp" />
+
+            <ImageView android:id="@+id/img_write"
+                android:layout_width="0dp"
+                android:padding="5dp"
+                android:layout_height="48dp"
+                android:src="@drawable/write64"
+                android:layout_weight="1"/>
+
+            <ImageView android:id="@+id/img_camera"
+                android:layout_width="0dp"
+                android:padding="5dp"
+                android:layout_height="48dp"
+                android:src="@drawable/camera64"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:background="@android:color/holo_red_light"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16dip"
+                android:text="Open map, finding more..." />
+            
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_open_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/string_open_map"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="90dp"
+                android:layout_marginTop="20dp">
+                
+            </android.support.v7.widget.AppCompatButton>
+
+        </LinearLayout>
+        
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_nearby"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="24">
+
+            <!--<include layout="@layout/item_nearby_list"/>-->
+
+        </android.support.v7.widget.RecyclerView>
+        
+    </LinearLayout>
+
+</ScrollView>
