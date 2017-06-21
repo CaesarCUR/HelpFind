@@ -30,6 +30,8 @@ public class BroadcastSquareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_broadcastsquare);
         ButterKnife.bind(this);
 
+        setResult(RESULT_OK, null); // tell login activity: you can die
+
         _broadText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

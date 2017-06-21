@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Network;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
@@ -157,7 +156,7 @@ public class GetPos {
                         if (resArray.length() > 0) {
                             JSONObject subObject = resArray.getJSONObject(0);
                             String address = subObject.getString("formatted_address");
-                            _store(address);//将获取的位置信息用store函数存储在sharedpreference中
+                            _store(address);    // 将获取的位置信息用store函数存储在sharedpreference中
 
                         }
                     } else {
