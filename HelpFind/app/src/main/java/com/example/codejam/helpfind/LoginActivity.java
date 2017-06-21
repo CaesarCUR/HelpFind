@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
-    private static final int REQUEST_LOGIN = 0;
+    private static final int REQUEST_LOGIN = 1;
 
     @BindView(R.id.input_account) EditText _userName;
     @BindView(R.id.input_password) EditText _password;
@@ -29,6 +29,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        // Login activity will accept data from SignUpActivity, we should check whether there has
+        // data in Intent
+        Intent extraIntent = getIntent();
+        if (null != extraIntent && extraIntent.hasExtra(SignUpActivity.USER_NAME) &&
+                extraIntent.hasExtra(SignUpActivity.PASS_TOKEN)) {
+            _userName.setText(extraIntent.getStringExtra(SignUpActivity.USER_NAME));
+            _password.setText(extraIntent.getStringExtra(SignUpActivity.PASS_TOKEN));
+        }
 
         // Setting Click Event for Login Button
         _loginButton.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == REQUEST_SIGNUP) {
             if (resultCode == RESULT_OK) {
                 // TODO: execute sign up successful logic at here
-                // by default, we just finish this activity
                 this.finish();
             }
         } else if (requestCode == REQUEST_LOGIN) {
