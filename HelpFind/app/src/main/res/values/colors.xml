@@ -7,4 +7,6 @@
     <color name="colorLoginInputTextTheme">#FFF</color>
     <color name="colorLoginHintTheme">#bfbebe</color>
     <color name="colorLoginButtonBackground">#a40202</color>
+    <color name="colorBroadBack">#5e5050</color>
+    <color name="colorBroadCard">#412c2c</color>
 </resources>
