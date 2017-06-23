@@ -1,20 +1,19 @@
 package com.example.codejam.helpfind;
 
-import android.os.BatteryManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.codejam.helpfind.entity.BroadcastAdapter;
 import com.example.codejam.helpfind.entity.CardUser;
+import com.example.codejam.helpfind.entity.ImageAdapter;
 
 import java.util.ArrayList;
 
@@ -91,14 +90,18 @@ public class BroadcastSquareActivity extends AppCompatActivity {
 
     private ArrayList<CardUser> getData() {
         ArrayList<CardUser> data = new ArrayList<>();
+        ArrayList<String> urls = new ArrayList<String>(){
+            {
+                add("http://pics1.pof.com/dating/221/89/4iozl43dvlhe1xlskxev0f10w369212433.jpg");
+                add("http://pics1.pof.com/dating/221/89/4iozl43dvlhe1xlskxev0f10w369212433.jpg");
+                add("http://pics1.pof.com/dating/221/89/4iozl43dvlhe1xlskxev0f10w369212433.jpg");
+            }};
 
         for (int i = 0; i < 13; i++) {
             String url = "file:///Users/zhouming/Desktop/catb.png";
-            data.add(new CardUser("Andrew", "My god! So handsome a genius!", url));
+            data.add(new CardUser("Andrew", "My god! So handsome a genius!", url, urls));
         }
 
         return data;
     }
-
-
 }
