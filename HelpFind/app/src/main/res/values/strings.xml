@@ -7,4 +7,7 @@
     </string>
     <string name="string_item_nearby_username">Andrew</string>
     <string name="string_item_nearby_time">1 hour ago</string>
+    <string name="string_img_index">%1$d/%2$d</string>
+    <string name="string_load_more">Load More...</string>
+    <string name="string_open_map_hint">Open map, finding more...</string>
 </resources>

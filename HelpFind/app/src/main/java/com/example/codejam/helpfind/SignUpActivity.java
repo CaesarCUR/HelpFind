@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // launch progress dialog
         final ProgressDialog progressDialog = new ProgressDialog(SignUpActivity.this,
-                R.style.AppTheme);
+                ProgressDialog.STYLE_SPINNER);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Create account...");
         progressDialog.show();

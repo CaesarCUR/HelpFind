@@ -5,7 +5,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:background="@color/colorBroadCard"
-    android:layout_marginTop="1dp">
+    android:layout_marginBottom="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,53 +14,102 @@
 
         <ImageView android:id="@+id/item_nearby_img"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:padding="5dp"
-            android:src="@drawable/me64"/>
+            android:src="@drawable/me64"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"/>
 
         <TextView android:id="@+id/item_nearby_user"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:paddingTop="20dp"
-            android:paddingLeft="15dp"
-            android:textSize="16dip"
-            android:textStyle="bold"
+            android:paddingStart="0dp"
+            android:paddingEnd="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorUsername"
             android:text="@string/string_item_nearby_username"/>
 
-        <TextView android:id="@+id/item_neary_time"
+        <TextView android:id="@+id/item_nearby_time"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:paddingTop="25dp"
-            android:textSize="10dip"
+            android:textSize="10sp"
             android:text="@string/string_item_nearby_time"/>
 
 
     </LinearLayout>
 
-    <TextView android:id="@+id/item_nearby_info"
+    <TextView
+        android:id="@+id/item_nearby_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/string_item_nearby_info"
-        android:textSize="18dip"
+        android:textSize="18sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:paddingLeft="5dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="5dp"
+        android:textColor="@color/colorInfo"
         android:fontFamily="monospace"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/item_nearby_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="5dp"
         android:numColumns="auto_fit"
         android:gravity="center"
         android:columnWidth="100dp"
         android:drawSelectorOnTop="true"
-        android:verticalSpacing="2dp"
-        android:horizontalSpacing="2dp"
+        android:verticalSpacing="3dp"
+        android:horizontalSpacing="3dp"
         android:stretchMode="columnWidth" />
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<View-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/view" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="5"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/item_nearby_info"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/string_item_nearby_info"-->
+                <!--android:textSize="18dip"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:paddingBottom="10dp"-->
+                <!--android:paddingLeft="5dp"-->
+                <!--android:fontFamily="monospace"/>-->
+
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/item_nearby_grid"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="2dp"-->
+                <!--android:numColumns="auto_fit"-->
+                <!--android:gravity="center"-->
+                <!--android:columnWidth="100dp"-->
+                <!--android:drawSelectorOnTop="true"-->
+                <!--android:verticalSpacing="2dp"-->
+                <!--android:horizontalSpacing="2dp"-->
+                <!--android:stretchMode="columnWidth" />-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 
 </LinearLayout>

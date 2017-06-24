@@ -1,12 +1,13 @@
 package com.example.codejam.helpfind;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-
-import com.example.codejam.helpfind.entity.BroadcastSubAdapter;
-import com.example.codejam.helpfind.entity.ImageAdapter;
-import com.example.codejam.helpfind.util.DepthPageTransformer;
+import android.view.LayoutInflater;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,42 +18,56 @@ import butterknife.ButterKnife;
  * Created by zhouming on 2017/6/23.
  */
 
-public class BrowserActivity extends AppCompatActivity {
-    public final static String INTENT_URL_TAG = "IMAGE_URL";
+public class BrowserActivity extends FragmentActivity {
+    public final static String INTENT_URLS_TAG = "IMAGE_URL";
     public final static String INTENT_POS_TAG = "POS_ID";
+    public final static String CURRENT_POS = "CurrentPosition";
 
-    @BindView(R.id.viewpager_img) ViewPager _viewPager;
+    private int pagerPosition;
 
-    private ImageAdapter imgAdapter;
+    @BindView(R.id.vp_image_browser) ViewPager _viewPager;
+    @BindView(R.id.tv_image_index) TextView _indicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
         ButterKnife.bind(this);
-
         initialViewPager();
+
+        pagerPosition = getIntent().getIntExtra(INTENT_POS_TAG, 0);
+
+        if (savedInstanceState != null) {
+            pagerPosition = savedInstanceState.getInt(CURRENT_POS);
+        }
+
+        _viewPager.setCurrentItem(pagerPosition);
     }
 
+    /**
+     * Initialize ViewPager
+     */
     private void initialViewPager() {
-        final ArrayList<String> imgUrls = getIntent().getStringArrayListExtra(INTENT_URL_TAG);
-        final int pos = getIntent().getIntExtra(INTENT_POS_TAG, 0);
+        ArrayList<String> imgUrls = getIntent().getStringArrayListExtra(INTENT_URLS_TAG);
 
-        imgAdapter = new ImageAdapter(this, imgUrls);
-        _viewPager.setAdapter(imgAdapter);
+        ImagePagerAdapter mAdapter = new ImagePagerAdapter(getSupportFragmentManager(), imgUrls);
+        _viewPager.setAdapter(mAdapter);
 
-        _viewPager.setCurrentItem(pos); // 设置起始位置
-        _viewPager.setPageTransformer(true, new DepthPageTransformer()); // 修改动画效果
+        CharSequence text = getString(R.string.string_img_index, 1, _viewPager.getAdapter().getCount());
+        _indicator.setText(text);
 
+        // update title
         _viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                // TODO: text below ImageView will change
+
             }
 
             @Override
             public void onPageSelected(int position) {
-
+                // update title
+                CharSequence text = getString(R.string.string_img_index, position + 1, _viewPager.getAdapter().getCount());
+                _indicator.setText(text);
             }
 
             @Override
@@ -60,5 +75,32 @@ public class BrowserActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(CURRENT_POS, _viewPager.getCurrentItem());
+    }
+
+    private class ImagePagerAdapter extends FragmentStatePagerAdapter {
+
+        public ArrayList<String> fileList;
+
+        public ImagePagerAdapter(FragmentManager fm, ArrayList<String> fileList) {
+            super(fm);
+            this.fileList = fileList;
+        }
+
+        @Override
+        public int getCount() {
+            return fileList == null ? 0 : fileList.size();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            String url = fileList.get(position);
+            return ImageDetailFragment.newInstance(url);
+        }
+
     }
 }
